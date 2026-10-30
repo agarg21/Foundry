@@ -2,7 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: ["**"]  # Run on all branches
+    # Same branches as pull_request: a commit to a PR branch is tested by its
+    # pull_request run; a push run on top of it doubled the jobs and queued both.
+    branches: [main, dev]
   pull_request:
     branches: [main, dev]
   workflow_dispatch:  # Allow manual trigger
